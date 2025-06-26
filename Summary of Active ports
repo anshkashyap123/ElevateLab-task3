@@ -1,0 +1,26 @@
+📊 Summary of Open Ports
+
+Port	Protocol	Service	Risk Level	Notes
+
+135	TCP	Microsoft  RPC 	🔴 High	Risk of remote code execution.
+139	TCP	NetBIOS Session	🟠 Medium	Can be used for lateral movement.
+445	TCP	SMB	            🔴 Critical	Exploited by WannaCry, EternalBlue.
+49663–49671 TCP	 Dynamic RPC Ports	🟡 Low	Windows internal ports. Restrict externally.
+5040	TCP	 Windows WMI  	🟡 Low	For Windows management; firewall recommended.
+7070	TCP 	RealServer   	🟠 Medium	Streaming protocol; update or disable if unused.
+7680	TCP	 Delivery Optimization	🟡 Low	Windows update P2P sharing. Disable if unnecessary.
+8834	TCP	 Nessus Web UI	🟢 Low	Secure with password and local IP restrictions.
+
+⚠️ Critical Risks Identified
+
+Port 445 (SMB): Known for major exploits (WannaCry). Disable SMBv1 and apply latest patches.
+Port 135 (RPC): Entry point for remote attacks. Block externally.
+Port 139 (NetBIOS): Often exploited internally. Disable if not needed.
+
+✅ Recommendations
+
+Disable or block unused or risky ports.
+Ensure SMBv1 is disabled on all systems.
+Apply all available OS updates and security patches.
+Secure Nessus (port 8834) behind authentication and firewall.
+Monitor and audit access logs for unusual activity.
